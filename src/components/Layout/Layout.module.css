@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: rgb(73, 85, 117);
+    background-color: blue;
 }
 
 .Header>nav {
@@ -17,5 +17,5 @@
     text-decoration: none;
     border-radius: 15px;
     padding: 0 10px 5px 10px;
-    border: solid rgb(73, 85, 117);
+    border: solid blue;
 }

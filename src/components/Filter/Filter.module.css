@@ -1,0 +1,14 @@
+.Container {
+    display: flex;
+    gap: 20px
+}
+
+.Select {
+    background-color: aquamarine;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.Select:hover {
+    cursor: pointer;
+}

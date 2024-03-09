@@ -9,23 +9,23 @@ export const Layout = () => {
           <NavLink
             to="/"
             style={({ isActive }) => ({
-              background: isActive ? '#3a4561' : '#495575',
+              background: isActive ? 'darkblue' : 'blue',
             })}
           >
             Home
           </NavLink>
           <NavLink
-            to="/cars"
+            to="/catalog"
             style={({ isActive }) => ({
-              background: isActive ? '#3a4561' : '#495575',
+              background: isActive ? 'darkblue' : 'blue',
             })}
           >
-            Cars
+            Catalog
           </NavLink>
           <NavLink
             to="/favorites"
             style={({ isActive }) => ({
-              background: isActive ? '#3a4561' : '#495575',
+              background: isActive ? 'darkblue' : 'blue',
             })}
           >
             Favorites
