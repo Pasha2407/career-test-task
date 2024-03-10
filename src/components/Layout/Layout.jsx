@@ -32,7 +32,7 @@ export const Layout = () => {
           </NavLink>
         </nav>
       </header>
-      <main className={css.Main}>
+      <main>
         <Outlet />
       </main>
     </div>

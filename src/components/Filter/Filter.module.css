@@ -65,6 +65,7 @@
 ::-webkit-scrollbar-thumb {
     background-color: #dddddd;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -74,7 +75,7 @@
 .Options>ul>li {
     color: #12141773;
     cursor: pointer;
-    transition: color 0.3 ease;
+    transition: color 0.3s ease;
 }
 
 .Options>ul>li:hover {
@@ -135,7 +136,7 @@
     border-radius: 12px;
     background: #3470FF;
     border: transparent;
-    transition: background-color 0.3 ease;
+    transition: background-color 0.3s ease;
     cursor: pointer;
 }
 

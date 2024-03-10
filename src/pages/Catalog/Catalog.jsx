@@ -95,6 +95,9 @@ export const Catalog = () => {
           {showButtonMore && <button onClick={nextPage}>Load more</button>}
         </section>
       )}
+      {filteredCars.length === 0 && onFilter && (
+        <i>Oops... No car was found. Try changing the filter.</i>
+      )}
     </div>
   );
 };
