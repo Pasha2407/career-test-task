@@ -24,6 +24,7 @@ import {
 import { Filter } from 'components/Filter/Filter';
 import { CarList } from 'components/CarList/CarList';
 import { getFilteredCars } from 'helpers/getFilteredCars';
+import { Loader } from 'components/Loader/Loader';
 
 export const Catalog = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,16 @@ export const Catalog = () => {
   const priceFilter = useSelector(selectPrice);
   const mileageFrom = useSelector(selectMileageFrom);
   const mileageTo = useSelector(selectMileageTo);
+
+  useEffect(() => {
+    const height = 426;
+    if (cars.length > 12) {
+      window.scrollBy({
+        top: height * 1.3,
+        behavior: 'smooth',
+      });
+    }
+  }, [cars]);
 
   useEffect(() => {
     dispatch(clearCarsData());
@@ -72,7 +83,7 @@ export const Catalog = () => {
 
   return (
     <div className={css.Container}>
-      {isLoading && !error && <i>Loading...</i>}
+      {isLoading && !error && <Loader />}
       <Filter />
       {onFilter ? (
         <section>
