@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import css from './Filter.module.css';
+import { IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
 
 import { selectBrand } from '../../redux/filter/filterSelectors';
 import { selectPrice } from '../../redux/filter/filterSelectors';
@@ -28,36 +30,38 @@ export const Filter = () => {
     priceFilter ? priceFilter : 'To $'
   );
 
-  const handleShownSelectedBrand = e => {
-    e.preventDefault();
+  const handleShownSelectedBrand = event => {
+    event.preventDefault();
     setShownSelectBrand(prev => !prev);
   };
 
-  const handleShownSelectedPrice = e => {
-    e.preventDefault();
+  const handleShownSelectedPrice = event => {
+    event.preventDefault();
     setShownSelectPrice(prev => !prev);
   };
+
   const changeBrand = brand => {
     setSelectedBrand(brand);
     setShownSelectBrand(false);
   };
+
   const changePrice = price => {
     setSelectedPrice(price + ' $');
     setShownSelectPrice(false);
   };
 
-  const handleInputChangeFrom = e => {
-    const { value } = e.target;
+  const handleInputChangeFrom = event => {
+    const { value } = event.target;
     setSelectedFromMileage(value.replace(/,/g, ''));
   };
 
-  const handleInputChangeTo = e => {
-    const { value } = e.target;
+  const handleInputChangeTo = event => {
+    const { value } = event.target;
     setSelectedToMileage(value.replace(/,/g, ''));
   };
 
-  const handleFilterSubmit = e => {
-    e.preventDefault();
+  const handleFilterSubmit = event => {
+    event.preventDefault();
     if (
       selectedBrand === 'Enter the text' &&
       selectedPrice === 'To $' &&
@@ -76,8 +80,8 @@ export const Filter = () => {
     dispatch(setValueFilter(data));
   };
 
-  const handleFilterClear = e => {
-    e.preventDefault();
+  const handleFilterClear = event => {
+    event.preventDefault();
     const data = {
       brand: '',
       price: '',
@@ -97,37 +101,43 @@ export const Filter = () => {
     <div className={css.Container}>
       <section>
         <header>Car brand</header>
-        <div style={{ position: 'relative' }}>
-          <div className={css.Select} onClick={handleShownSelectedBrand}>
-            {selectedBrand}
-            {isShownSelectBrand ? <i>up</i> : <i>down</i>}
-          </div>
-          {isShownSelectBrand && (
-            <div>
-              <ul>
-                {modelData.map(el => (
-                  <li key={el} onClick={() => changeBrand(el)}>
-                    {el}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        <div
+          className={css.Select}
+          style={{ width: '224px' }}
+          onClick={handleShownSelectedBrand}
+        >
+          {selectedBrand}
+          {isShownSelectBrand ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
+        {isShownSelectBrand && (
+          <div className={css.Options} style={{ width: '224px' }}>
+            <ul>
+              {modelData.map(item => (
+                <li key={item} onClick={() => changeBrand(item)}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
       <section>
         <header>Price/ 1 hour</header>
         <div style={{ position: 'relative' }}>
-          <div className={css.Select} onClick={handleShownSelectedPrice}>
+          <div
+            className={css.Select}
+            style={{ width: '125px' }}
+            onClick={handleShownSelectedPrice}
+          >
             {selectedPrice}
-            {isShownSelectPrice ? <i>up</i> : <i>down</i>}
+            {isShownSelectPrice ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </div>
           {isShownSelectPrice && (
-            <div>
+            <div className={css.Options} style={{ width: '125px' }}>
               <ul>
-                {priceData.map(el => (
-                  <li key={el} onClick={() => changePrice(el)}>
-                    {el}
+                {priceData.map(item => (
+                  <li key={item} onClick={() => changePrice(item)}>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -137,33 +147,33 @@ export const Filter = () => {
       </section>
       <section>
         <header>Сar mileage / km</header>
-        <div style={{ display: 'flex' }}>
+        <div className={css.Input}>
           <div>
-            <div
+            <input
+              className={css.InputFrom}
               type="text"
-              mask="9,999"
-              title="Only number"
               onChange={handleInputChangeFrom}
               value={selectedFromMileage}
               id="mileageFrom"
             />
-            <div htmlFor="mileageFrom">From</div>
+            <span htmlFor="mileageFrom">From</span>
           </div>
           <div>
-            <div
+            <input
+              className={css.InputTo}
               type="text"
-              mask="9,999"
-              title="Only number"
               onChange={handleInputChangeTo}
               value={selectedToMileage}
               id="mileageTo"
             />
-            <div htmlFor="mileageTo">To</div>
+            <span htmlFor="mileageTo">To</span>
           </div>
         </div>
       </section>
-      <button onClick={handleFilterSubmit}>Search</button>
-      <button onClick={handleFilterClear}>Reset</button>
+      <section className={css.Buttons}>
+        <button onClick={handleFilterSubmit}>Search</button>
+        <button onClick={handleFilterClear}>Reset</button>
+      </section>
     </div>
   );
 };
