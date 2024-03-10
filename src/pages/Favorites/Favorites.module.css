@@ -1,3 +1,22 @@
 .Container {
-    padding: 20px;
+    padding: 40px;
+}
+
+.Image {
+    width: 900px;
+    height: 420px;
+    background-size: 100%;
+    margin: 0 auto;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Image>h1 {
+    color: white;
+    font-size: 40px;
+    position: relative;
+    bottom: 50px;
+    text-shadow: 2px 2px 4px black;
 }
