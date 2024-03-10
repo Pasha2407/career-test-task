@@ -6,14 +6,15 @@ Application for quick car rental.
 
 The application has three pages:
 
-1. Home Page
+1. Home Page: This page greets you when you enter the site.
 
-![Home Page](./public/home-page.jpg)
+![Home Page](./public/home-page.PNG)
 
-2. Catalog Page
+2. Catalog Page: Here you can see the list of cars and filter the list according
+   to your needs.
 
-![Catalog Page](./public/catalog-page.jpg)
+![Catalog Page](./public/catalog-page.PNG)
 
-3. Favorites Page
+3. Favorites Page: Your favorite cars are stored here.
 
-![Favorites Page](./public/favorites-page.jpg)
+![Favorites Page](./public/favorites-page.PNG)
