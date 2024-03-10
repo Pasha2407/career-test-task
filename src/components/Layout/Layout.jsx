@@ -9,7 +9,7 @@ export const Layout = () => {
           <NavLink
             to="/"
             style={({ isActive }) => ({
-              background: isActive ? 'darkblue' : 'blue',
+              background: isActive ? '#3470FF' : 'none',
             })}
           >
             Home
@@ -17,7 +17,7 @@ export const Layout = () => {
           <NavLink
             to="/catalog"
             style={({ isActive }) => ({
-              background: isActive ? 'darkblue' : 'blue',
+              background: isActive ? '#3470FF' : 'none',
             })}
           >
             Catalog
@@ -25,7 +25,7 @@ export const Layout = () => {
           <NavLink
             to="/favorites"
             style={({ isActive }) => ({
-              background: isActive ? 'darkblue' : 'blue',
+              background: isActive ? '#3470FF' : 'none',
             })}
           >
             Favorites
