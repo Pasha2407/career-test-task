@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addToFavorite,
   removeFromFavorite,
 } from '../../redux/favorite/favoriteSlice';
 import { selectFavorite } from '../../redux/favorite/favoriteSelectors';
+import { Modal } from 'components/Modal/Modal';
 
 import css from './CarList.module.css';
 import { IconContext } from 'react-icons';
@@ -11,8 +13,21 @@ import { MdFavoriteBorder } from 'react-icons/md';
 import { MdFavorite } from 'react-icons/md';
 
 export const CarList = ({ data }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+
   const dispatch = useDispatch();
   const favorite = useSelector(selectFavorite);
+
+  const openModal = item => {
+    setCurrentItem(item);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   const handleFavorite = item => {
     if (!favorite.some(car => car.id === item.id)) {
       dispatch(addToFavorite(item));
@@ -65,7 +80,8 @@ export const CarList = ({ data }) => {
             </p>
           </section>
           <section className={css.ButtonMore}>
-            <button>Learn more</button>
+            <button onClick={() => openModal(item)}>Learn more</button>
+            {showModal && <Modal closeModal={closeModal} data={currentItem} />}
           </section>
         </div>
       ))}
