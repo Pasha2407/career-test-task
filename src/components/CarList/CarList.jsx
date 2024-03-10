@@ -4,7 +4,12 @@ import {
   removeFromFavorite,
 } from '../../redux/favorite/favoriteSlice';
 import { selectFavorite } from '../../redux/favorite/favoriteSelectors';
+
 import css from './CarList.module.css';
+import { IconContext } from 'react-icons';
+import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite } from 'react-icons/md';
+
 export const CarList = ({ data }) => {
   const dispatch = useDispatch();
   const favorite = useSelector(selectFavorite);
@@ -30,30 +35,37 @@ export const CarList = ({ data }) => {
               aria-label="Add to Favorites"
             >
               {favorite.some(car => car.id === item.id) ? (
-                <i>delete favorite</i>
+                <IconContext.Provider value={{ color: '#3470FF', size: 22 }}>
+                  <MdFavorite />
+                </IconContext.Provider>
               ) : (
-                <i>add favorite</i>
+                <IconContext.Provider
+                  value={{ color: 'rgba(255, 255, 255, 0.8)', size: 22 }}
+                >
+                  <MdFavoriteBorder />
+                </IconContext.Provider>
               )}
             </button>
           </section>
           <section className={css.Title}>
-            <span>
+            <p>
               {item.make}
-              {item.model}, {item.year}
-            </span>
-            <span>{item.rentalPrice}</span>
+              <span style={{ color: '#3470FF' }}> {item.model}</span>,{' '}
+              {item.year}
+            </p>
+            <p>{item.rentalPrice}</p>
           </section>
-          <section>
-            <span>{item.city}</span>
-            <span>{item.country}</span>
-            <span>{item.rentalCompany}</span>
-            <span>{item.type}</span>
-            <span>{item.make}</span>
-            <span>{item.id}</span>
-            <span>{item.feature}</span>
+          <section className={css.Description}>
+            <p>
+              {item.address.split(',')[1].trim()} |{' '}
+              {item.address.split(',')[2].trim()} | {item.rentalCompany}
+            </p>
+            <p>
+              {item.type} | {item.make} | {item.id} | {item.accessories[2]}
+            </p>
           </section>
           <section className={css.ButtonMore}>
-            <button>more</button>
+            <button>Learn more</button>
           </section>
         </div>
       ))}

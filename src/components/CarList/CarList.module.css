@@ -2,38 +2,80 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    gap: 20px;
+    row-gap: 50px;
 }
 
 .Container>div {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 274px;
+    height: 426px;
 }
 
 .Image {
-    width: 300px;
-    height: 300px;
+    width: 274px;
+    height: 274px;
     background-size: cover;
     background-position: center;
+    border-radius: 12px;
+}
+
+.Image>button {
+    background-color: unset;
+    border: none;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 15px;
 }
 
 .Title {
     display: flex;
+    width: 100%;
     justify-content: space-between;
+    margin-top: 5px;
+}
+
+.Title>p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.Description {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.Description>p {
+    margin: 0;
+    font-size: 12px;
+    color: #12141780;
 }
 
 .ButtonMore {
     display: flex;
+    width: 274px;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .ButtonMore>button {
-    width: 50%;
+    width: 274px;
+    height: 44px;
     padding: 5px 10px;
-    background-color: blue;
+    font-weight: 500;
+    background-color: #3470FF;
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
     font-size: 20px;
+    transition: background-color 0.3 ease;
+    cursor: pointer;
+}
+
+.ButtonMore>button:hover {
+    background-color: #0B44CD;
 }

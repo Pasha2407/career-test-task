@@ -1,6 +1,26 @@
 .Container {
-    padding: 20px;
+    padding: 20px 120px 50px 120px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.Container>section {
+    display: flex;
+    flex-direction: column;
+    gap: 60px
+}
+
+.Container>section>button {
+    font-weight: 500;
+    background-color: unset;
+    color: #3470FF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #3470FF;
+    font-size: 20px;
+    transition: background-color 0.3 ease;
+    cursor: pointer;
+    margin: 0 auto;
 }
