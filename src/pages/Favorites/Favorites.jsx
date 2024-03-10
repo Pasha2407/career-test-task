@@ -15,7 +15,9 @@ export const Favorites = () => {
     <div className={css.Container}>
       {favorite.length === 0 ? (
         <div className={css.Image} style={{ backgroundImage: `url(${image})` }}>
-          <h1>You don't have any favorite cars yet</h1>
+          <div>
+            <h1>You don't have any favorite cars yet</h1>
+          </div>
         </div>
       ) : (
         <CarList data={filteredCars} />
