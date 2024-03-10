@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/fastrent/static/css/main.82d66188.css",
-    "main.js": "/fastrent/static/js/main.d3b1a106.js",
+    "main.css": "/fastrent/static/css/main.68965766.css",
+    "main.js": "/fastrent/static/js/main.32801aa2.js",
     "static/media/favorite.jpg": "/fastrent/static/media/favorite.97c1631ea96f40c54ba9.jpg",
     "index.html": "/fastrent/index.html",
-    "main.82d66188.css.map": "/fastrent/static/css/main.82d66188.css.map",
-    "main.d3b1a106.js.map": "/fastrent/static/js/main.d3b1a106.js.map"
+    "main.68965766.css.map": "/fastrent/static/css/main.68965766.css.map",
+    "main.32801aa2.js.map": "/fastrent/static/js/main.32801aa2.js.map"
   },
   "entrypoints": [
-    "static/css/main.82d66188.css",
-    "static/js/main.d3b1a106.js"
+    "static/css/main.68965766.css",
+    "static/js/main.32801aa2.js"
   ]
 }
